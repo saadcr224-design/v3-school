@@ -1,0 +1,14 @@
+import assert from 'node:assert/strict';import {chatRequest} from '../worker/gemini.mjs';
+const env={GEMINI_API_KEY:'test-secret'};let n=0;const req=(body,extra={})=>new Request('https://example.com/api/chat',{method:'POST',headers:{'content-type':'application/json','cf-connecting-ip':String(n++),...extra},body:JSON.stringify(body)});const body={messages:[{role:'user',text:'Explain loops'}],language:'both'};
+let calls=0;const fake=async(url,options)=>{calls++;assert.equal(options.headers['x-goog-api-key'],'test-secret');const input=JSON.parse(options.body);assert(input.systemInstruction.parts[0].text.includes('Urdu'));return Response.json({candidates:[{content:{parts:[{text:'A loop repeats code.'}]},finishReason:'STOP'}]});};
+let r=await chatRequest(req(body),env,fake);assert.equal(r.status,200);assert.equal((await r.json()).text,'A loop repeats code.');assert.equal(r.headers.get('cache-control'),'no-store');
+assert.equal((await chatRequest(req(body,{'origin':'https://bad.example'}),env,fake)).status,403);
+assert.equal((await chatRequest(req({messages:[]}),env,fake)).status,400);
+assert.equal((await chatRequest(req(body),{},fake)).status,503);
+assert.equal(calls,1);
+r=await chatRequest(req(body),env,async()=>new Response('private provider error',{status:403}));assert.equal(r.status,502);assert(!(await r.text()).includes('private provider'));
+assert.equal((await chatRequest(req(body),env,async()=>new Response('',{status:429}))).status,429);
+assert.equal((await chatRequest(req(body),env,async()=>Response.json({candidates:[]}))).status,502);
+for(let i=0;i<8;i++)await chatRequest(req(body,{'cf-connecting-ip':'limited'}),env,fake);
+assert.equal((await chatRequest(req(body,{'cf-connecting-ip':'limited'}),env,fake)).status,429);
+console.log('PASS: Gemini request, Urdu instruction, output, credential isolation, origin validation, invalid input, quota, no-answer and rate limits');

@@ -1,0 +1,394 @@
+[
+  {
+    "id": 1,
+    "title": "Your first output",
+    "topic": "Output",
+    "level": "Beginner",
+    "prompt": "Print exactly: Hello, V3school! No input is needed.",
+    "urdu": "بالکل Hello, V3school! دکھائیں۔ ان پٹ کی ضرورت نہیں۔",
+    "hint": "Use std::cout and a quoted string. Remember the semicolon.",
+    "solution": "#include <iostream>\n\nint main() {\n    std::cout << \"Hello, V3school!\";\n}\n",
+    "starter": "#include <iostream>\n\nint main() {\n    // Write your solution here.\n    return 0;\n}\n",
+    "tests": [
+      {
+        "input": "",
+        "expected": "Hello, V3school!"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Add two numbers",
+    "topic": "Input & arithmetic",
+    "level": "Beginner",
+    "prompt": "Read two integers a and b (−1000 to 1000). Print their sum only.",
+    "urdu": "دو اعداد پڑھیں اور صرف ان کا مجموعہ دکھائیں۔",
+    "hint": "Read both numbers using std::cin >> a >> b. Print a + b.",
+    "solution": "#include <iostream>\n\nint main() {\n    int a{}, b{};\n    std::cin >> a >> b;\n    std::cout << a + b;\n}\n",
+    "starter": "#include <iostream>\n\nint main() {\n    // Write your solution here.\n    return 0;\n}\n",
+    "tests": [
+      {
+        "input": "3 4",
+        "expected": "7"
+      },
+      {
+        "input": "-5 2",
+        "expected": "-3"
+      },
+      {
+        "input": "0 0",
+        "expected": "0"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Even or odd",
+    "topic": "Conditions",
+    "level": "Beginner",
+    "prompt": "Read an integer n (−1000 to 1000). Print Even when n is divisible by 2; otherwise print Odd.",
+    "urdu": "عدد پڑھیں؛ جفت پر Even ورنہ Odd دکھائیں۔",
+    "hint": "The remainder n % 2 is zero for an even integer.",
+    "solution": "#include <iostream>\n\nint main() {\n    int n{};\n    std::cin >> n;\n    std::cout << (n % 2 == 0 ? \"Even\" : \"Odd\");\n}\n",
+    "starter": "#include <iostream>\n\nint main() {\n    // Write your solution here.\n    return 0;\n}\n",
+    "tests": [
+      {
+        "input": "8",
+        "expected": "Even"
+      },
+      {
+        "input": "7",
+        "expected": "Odd"
+      },
+      {
+        "input": "-4",
+        "expected": "Even"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Largest of three",
+    "topic": "Conditions",
+    "level": "Beginner",
+    "prompt": "Read three integers. Print the largest value, including when two or more values are equal. Inputs are between −1000 and 1000.",
+    "urdu": "تین اعداد میں سب سے بڑا دکھائیں، برابر قدریں بھی درست سنبھالیں۔",
+    "hint": "Start with the first value as the largest, then compare the other two.",
+    "solution": "#include <iostream>\n\nint main() {\n    int a{},b{},c{};\n    std::cin >> a >> b >> c;\n    int largest=a;\n    if(b>largest)largest=b;\n    if(c>largest)largest=c;\n    std::cout << largest;\n}\n",
+    "starter": "#include <iostream>\n\nint main() {\n    // Write your solution here.\n    return 0;\n}\n",
+    "tests": [
+      {
+        "input": "4 9 2",
+        "expected": "9"
+      },
+      {
+        "input": "-3 -8 -1",
+        "expected": "-1"
+      },
+      {
+        "input": "7 7 2",
+        "expected": "7"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Sum from 1 to n",
+    "topic": "Loops",
+    "level": "Beginner",
+    "prompt": "Read n between 0 and 1000. Use a loop to calculate and print 1 + 2 + … + n. For n = 0 print 0.",
+    "urdu": "لوپ سے ایک سے n تک جمع کریں۔ صفر پر صفر دیں۔",
+    "hint": "Initialize sum to zero. Add each i from 1 through n.",
+    "solution": "#include <iostream>\n\nint main() {\n    int n{},sum{};\n    std::cin >> n;\n    for(int i=1;i<=n;++i)sum+=i;\n    std::cout << sum;\n}\n",
+    "starter": "#include <iostream>\n\nint main() {\n    // Write your solution here.\n    return 0;\n}\n",
+    "tests": [
+      {
+        "input": "10",
+        "expected": "55"
+      },
+      {
+        "input": "1",
+        "expected": "1"
+      },
+      {
+        "input": "0",
+        "expected": "0"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "Factorial",
+    "topic": "Functions & loops",
+    "level": "Beginner",
+    "prompt": "Read n between 0 and 12. Print n factorial using a function. Remember 0! = 1.",
+    "urdu": "فنکشن سے n کا factorial دیں؛ صفر کا جواب ایک ہے۔",
+    "hint": "Start the product at 1, multiply from 2 to n, and return it from a function.",
+    "solution": "#include <iostream>\n\nlong long factorial(int n) {\n    long long result=1;\n    for(int i=2;i<=n;++i)result*=i;\n    return result;\n}\n\nint main() {\n    int n{};\n    std::cin >> n;\n    std::cout << factorial(n);\n}\n",
+    "starter": "#include <iostream>\n\nint main() {\n    // Write your solution here.\n    return 0;\n}\n",
+    "tests": [
+      {
+        "input": "5",
+        "expected": "120"
+      },
+      {
+        "input": "0",
+        "expected": "1"
+      },
+      {
+        "input": "12",
+        "expected": "479001600"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "Sum a sequence",
+    "topic": "Arrays & vectors",
+    "level": "Beginner",
+    "prompt": "Read n (0 to 100), then n integers (−1000 to 1000). Print the sum of the sequence.",
+    "urdu": "پہلے تعداد، پھر اتنے اعداد پڑھ کر جمع دکھائیں۔",
+    "hint": "Read values into a vector or accumulate each number as you read it.",
+    "solution": "#include <iostream>\n\nint main() {\n    int n{},sum{};\n    std::cin >> n;\n    for(int i=0;i<n;++i){int x{};std::cin>>x;sum+=x;}\n    std::cout << sum;\n}\n",
+    "starter": "#include <iostream>\n\nint main() {\n    // Write your solution here.\n    return 0;\n}\n",
+    "tests": [
+      {
+        "input": "4\n1 2 3 4",
+        "expected": "10"
+      },
+      {
+        "input": "3\n-2 5 -1",
+        "expected": "2"
+      },
+      {
+        "input": "0",
+        "expected": "0"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "Reverse a word",
+    "topic": "Strings",
+    "level": "Beginner",
+    "prompt": "Read one word of 1 to 100 ASCII letters. Print its characters in reverse order.",
+    "urdu": "ایک لفظ پڑھیں اور اس کے حروف الٹی ترتیب میں دکھائیں۔",
+    "hint": "std::reverse works with begin() and end(); alternatively traverse from the last character.",
+    "solution": "#include <iostream>\n#include <string>\n#include <algorithm>\n\nint main() {\n    std::string word;\n    std::cin >> word;\n    std::reverse(word.begin(),word.end());\n    std::cout << word;\n}\n",
+    "starter": "#include <iostream>\n#include <string>\n#include <algorithm>\n\nint main() {\n    // Write your solution here.\n    return 0;\n}\n",
+    "tests": [
+      {
+        "input": "hello",
+        "expected": "olleh"
+      },
+      {
+        "input": "a",
+        "expected": "a"
+      },
+      {
+        "input": "level",
+        "expected": "level"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "Count vowels",
+    "topic": "Strings & loops",
+    "level": "Intermediate",
+    "prompt": "Read one word of ASCII letters. Count a, e, i, o, u, treating uppercase letters as vowels too. Print the count.",
+    "urdu": "لفظ میں چھوٹے اور بڑے حروف والے vowels گنیں۔",
+    "hint": "Convert safely with std::tolower(static_cast<unsigned char>(c)), then compare with the five vowels.",
+    "solution": "#include <iostream>\n#include <string>\n#include <cctype>\n\nint main() {\n    std::string word;\n    std::cin >> word;\n    int count=0;\n    for(unsigned char c:word){char x=static_cast<char>(std::tolower(c));if(x=='a'||x=='e'||x=='i'||x=='o'||x=='u')++count;}\n    std::cout << count;\n}\n",
+    "starter": "#include <iostream>\n#include <string>\n#include <cctype>\n\nint main() {\n    // Write your solution here.\n    return 0;\n}\n",
+    "tests": [
+      {
+        "input": "Education",
+        "expected": "5"
+      },
+      {
+        "input": "sky",
+        "expected": "0"
+      },
+      {
+        "input": "AEIOU",
+        "expected": "5"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "Sort numbers",
+    "topic": "STL algorithms",
+    "level": "Intermediate",
+    "prompt": "Read n (0 to 100), then n integers. Print them in ascending order separated by spaces. Extra surrounding whitespace is ignored.",
+    "urdu": "اعداد چھوٹے سے بڑے ترتیب میں، خالی جگہ سے الگ دکھائیں۔",
+    "hint": "Use std::vector<int> and std::sort. Include <vector> and <algorithm>.",
+    "solution": "#include <iostream>\n#include <vector>\n#include <algorithm>\n\nint main() {\n    int n{};\n    std::cin >> n;\n    std::vector<int> v(n);\n    for(int& x:v)std::cin >> x;\n    std::sort(v.begin(),v.end());\n    for(int x:v)std::cout << x << \" \";\n}\n",
+    "starter": "#include <iostream>\n#include <vector>\n#include <algorithm>\n\nint main() {\n    // Write your solution here.\n    return 0;\n}\n",
+    "tests": [
+      {
+        "input": "5\n3 1 4 1 2",
+        "expected": "1 1 2 3 4"
+      },
+      {
+        "input": "3\n-1 -3 0",
+        "expected": "-3 -1 0"
+      },
+      {
+        "input": "0",
+        "expected": ""
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "title": "Count unique values",
+    "topic": "Sets",
+    "level": "Intermediate",
+    "prompt": "Read n (0 to 100), then n integers. Print the number of distinct values.",
+    "urdu": "اعداد میں مختلف قدروں کی تعداد دکھائیں۔",
+    "hint": "Insert each value into std::set<int>; its size counts unique elements.",
+    "solution": "#include <iostream>\n#include <set>\n\nint main() {\n    int n{};std::cin>>n;\n    std::set<int> values;\n    for(int i=0;i<n;++i){int x{};std::cin>>x;values.insert(x);}\n    std::cout << values.size();\n}\n",
+    "starter": "#include <iostream>\n#include <set>\n\nint main() {\n    // Write your solution here.\n    return 0;\n}\n",
+    "tests": [
+      {
+        "input": "5\n1 2 1 3 2",
+        "expected": "3"
+      },
+      {
+        "input": "4\n7 7 7 7",
+        "expected": "1"
+      },
+      {
+        "input": "0",
+        "expected": "0"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "title": "Rectangle class",
+    "topic": "Classes & objects",
+    "level": "Intermediate",
+    "prompt": "Define a Rectangle class with width, height, and an area() method. Read two integers (0 to 1000), create an object, and print its area.",
+    "urdu": "Rectangle کلاس اور area فنکشن بنائیں؛ چوڑائی اور اونچائی سے رقبہ دیں۔",
+    "hint": "Initialize width and height in a constructor. area() returns width * height.",
+    "solution": "#include <iostream>\n\nclass Rectangle {\n    int width, height;\npublic:\n    Rectangle(int w,int h):width(w),height(h){}\n    int area() const {return width*height;}\n};\n\nint main() {\n    int w{},h{};std::cin>>w>>h;\n    Rectangle r{w,h};\n    std::cout << r.area();\n}\n",
+    "starter": "#include <iostream>\n\nint main() {\n    // Write your solution here.\n    return 0;\n}\n",
+    "tests": [
+      {
+        "input": "3 4",
+        "expected": "12"
+      },
+      {
+        "input": "0 8",
+        "expected": "0"
+      },
+      {
+        "input": "10 10",
+        "expected": "100"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "title": "Swap by reference",
+    "topic": "References",
+    "level": "Intermediate",
+    "prompt": "Define void swapValues(int&, int&). Read two integers, swap them through the function, and print the new order.",
+    "urdu": "ریفرنس والے فنکشن سے دو اعداد کی جگہ بدلیں اور نئی ترتیب دکھائیں۔",
+    "hint": "Use a temporary int to preserve the first value while assigning the second.",
+    "solution": "#include <iostream>\n\nvoid swapValues(int& a,int& b){int temp=a;a=b;b=temp;}\n\nint main() {\n    int a{},b{};std::cin>>a>>b;\n    swapValues(a,b);\n    std::cout << a << \" \" << b;\n}\n",
+    "starter": "#include <iostream>\n\nint main() {\n    // Write your solution here.\n    return 0;\n}\n",
+    "tests": [
+      {
+        "input": "3 8",
+        "expected": "8 3"
+      },
+      {
+        "input": "-1 0",
+        "expected": "0 -1"
+      },
+      {
+        "input": "5 5",
+        "expected": "5 5"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "title": "Safe division",
+    "topic": "Exceptions",
+    "level": "Intermediate",
+    "prompt": "Read integers a and b (−1000 to 1000). A divide function should throw when b = 0. Print Error for that case; otherwise print the integer quotient.",
+    "urdu": "صفر سے تقسیم پر ایکسپشن دیں اور Error چھاپیں؛ ورنہ integer جواب دیں۔",
+    "hint": "Throw std::invalid_argument for zero and catch it around the function call.",
+    "solution": "#include <iostream>\n#include <stdexcept>\n\nint divide(int a,int b){if(b==0)throw std::invalid_argument(\"zero\");return a/b;}\n\nint main() {\n    int a{},b{};std::cin>>a>>b;\n    try{std::cout << divide(a,b);}\n    catch(const std::invalid_argument&){std::cout << \"Error\";}\n}\n",
+    "starter": "#include <iostream>\n#include <stdexcept>\n\nint main() {\n    // Write your solution here.\n    return 0;\n}\n",
+    "tests": [
+      {
+        "input": "9 2",
+        "expected": "4"
+      },
+      {
+        "input": "5 0",
+        "expected": "Error"
+      },
+      {
+        "input": "-9 2",
+        "expected": "-4"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "title": "Generic maximum",
+    "topic": "Templates",
+    "level": "Advanced",
+    "prompt": "Write a function template that returns the greater of two values. Read two integers and print the result from your template.",
+    "urdu": "ٹیمپلیٹ فنکشن سے دو قدروں میں بڑی قدر دیں۔",
+    "hint": "Use template<class T> and return a > b ? a : b.",
+    "solution": "#include <iostream>\n\ntemplate<class T>T maximum(T a,T b){return a>b?a:b;}\n\nint main() {\n    int a{},b{};std::cin>>a>>b;\n    std::cout << maximum(a,b);\n}\n",
+    "starter": "#include <iostream>\n\nint main() {\n    // Write your solution here.\n    return 0;\n}\n",
+    "tests": [
+      {
+        "input": "7 3",
+        "expected": "7"
+      },
+      {
+        "input": "-5 -2",
+        "expected": "-2"
+      },
+      {
+        "input": "4 4",
+        "expected": "4"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "title": "Filter even numbers",
+    "topic": "Modern C++ & lambdas",
+    "level": "Advanced",
+    "prompt": "Read n (0 to 100), then n integers. Use a lambda predicate to print only even numbers in their original order.",
+    "urdu": "لیمبڈا کی شرط سے صرف جفت اعداد اصل ترتیب میں دکھائیں۔",
+    "hint": "The predicate returns n % 2 == 0. Apply it before printing each value.",
+    "solution": "#include <iostream>\n\nint main() {\n    int n{};std::cin>>n;\n    auto even=[](int x){return x%2==0;};\n    for(int i=0;i<n;++i){int x{};std::cin>>x;if(even(x))std::cout<<x<<\" \";}\n}\n",
+    "starter": "#include <iostream>\n\nint main() {\n    // Write your solution here.\n    return 0;\n}\n",
+    "tests": [
+      {
+        "input": "6\n1 2 3 4 5 6",
+        "expected": "2 4 6"
+      },
+      {
+        "input": "3\n1 3 5",
+        "expected": ""
+      },
+      {
+        "input": "4\n-4 -3 0 2",
+        "expected": "-4 0 2"
+      }
+    ]
+  }
+]

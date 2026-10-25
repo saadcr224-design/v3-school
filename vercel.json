@@ -1,0 +1,6 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "framework": null,
+  "installCommand": "node -e \"console.log('V3school Vercel build needs no dependencies')\"",
+  "buildCommand": "node scripts/build-vercel.mjs"
+}
